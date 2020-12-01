@@ -1,6 +1,5 @@
 {
   "name": "compass",
-  "private": true,
   "description": "Compass is a feature-rich New Tab page designed for speed.",
   "version": "0.0.2",
   "author": "Dot HQ <contact@dothq.co>",
@@ -45,7 +44,6 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve -p 3065",
     "clean": "gatsby clean",
