@@ -2,7 +2,7 @@ import { express } from 'express';
 import { request } from 'request';
 const app = express();
 
-app.get('/', express.static("../public"))
+app.get('/', express.static("../src/pages/"))
 app.get('/api', (req: any, res: any) => {
     res.json({
         ok: true
