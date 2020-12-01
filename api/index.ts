@@ -1,6 +1,6 @@
-const express = require('express');
+import { express } from 'express';
+import { request } from 'request';
 const app = express();
-const request = require("request")
 
 app.get('/', express.static("../public"))
 app.get('/api', (req: any, res: any) => {
@@ -15,8 +15,4 @@ app.use((err: any, req: any, res: any) => {
     }
 });
 
-const port = process.env.PORT || 3000;
-
-app.listen(port)
-
-module.exports = app
+app.listen(3000)
