@@ -5,7 +5,7 @@
  * See: https://www.gatsbyjs.com/docs/use-static-query/
  */
 
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import { MountEverest, BackgroundDisplay, Attribution, Geolocation, Metadata } from './style';
@@ -64,10 +64,11 @@ const Layout = ({ children }) => {
 
 		setBackgroundGetProcess(true);
 
-		unsplashPlugin.api.getBackground().then(({ url, attribution, location }) => {
-			setState({ attribution, location: !!location ? location : null })
+		unsplashPlugin.api.getBackground().then(images => {
+			const image = images[0]
+			setState({ attribution: image.attribution, location: !!image.location ? image.location : null })
 
-			setBackground(url);
+			setBackground(image.urls.full);
 			setBackgroundSet(true);
 		})
 	}, [setState, state.background]);

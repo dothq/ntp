@@ -1,13 +1,15 @@
 import axios from "axios"
 import localforage from 'localforage';
 
-const url = "https://dothq.co/api/unsplash/wallpaper"
+const url = "https://api.unsplash.com/photos/random?collections=67042424&count=1"
+
+const unsplashKey = process.env.UNSPLASH_KEY
 
 export const getBackground = async () => {
     return new Promise(async (resolve, reject) => {
         localforage.getItem("background-cache").then((value: any) => {
             if(value == null || Date.now() >= value.exp) return resolve(getFreshBackground())
-
+                
             resolve(value)
         }).catch((err) => {
             console.log(err)
@@ -18,9 +20,9 @@ export const getBackground = async () => {
 }
 
 const getFreshBackground = () => {
-    return axios.get(url).then(metadata => {
-        return axios.get(`${metadata.data.url}&w=1920&h=1080`, { responseType: "arraybuffer" })
-            .then(async image => await addToCache(image.data, metadata.data))
+    return axios.get(url, { headers: { "Authorization": `Client-ID ${unsplashKey}`} }).then(metadata => {
+        return axios.get(`${metadata.data.url}&w=1920&h=1080`)
+            .then(async images => await addToCache(images.data, metadata.data))
             .catch(e => {
                 console.log(e.message)
                 return ""
