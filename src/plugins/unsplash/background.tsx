@@ -1,7 +1,7 @@
 import axios from "axios"
 import localforage from 'localforage';
 
-const url = "/api/unsplash/wallpaper"
+const url = "https://dothq.co/api/unsplash/wallpaper"
 
 export const getBackground = async () => {
     return new Promise(async (resolve, reject) => {

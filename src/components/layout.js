@@ -85,9 +85,9 @@ const Layout = ({ children }) => {
 				<Time />
 
 				<Metadata visible={backgroundLoaded} onMouseEnter={() => setBackgroundDimmed(true)} onMouseLeave={() => setBackgroundDimmed(false)}>
-					<Attribution>
+					{state.attribution && <Attribution>
 						<a target={"__blank"} href={state.attribution.originalPhoto}>Photo</a> by <a target={"__blank"} href={`https://unsplash.com/@${state.attribution.logon}`}>{state.attribution.name}</a> on <a target={"__blank"} href={`https://unsplash.com`}>Unsplash</a>
-					</Attribution>
+					</Attribution>}
 
 					{state.location && <Geolocation>
 						<a style={{ cursor: "pointer" }} onClick={() => copyCoords(state.location)}>{state.location.pretty}</a>
