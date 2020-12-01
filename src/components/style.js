@@ -24,11 +24,6 @@ export const BackgroundDisplay = styled.img`
             opacity: 0.8;
         }
     }
-
-    ${({ loaded, dimmed }: { loaded: boolean; dimmed: boolean }) => css`
-        opacity: ${dimmed ? 0.2 : loaded ? 0.8 : 0};
-        transform: scale(${dimmed ? 1.01 : 1});
-    `};
 `;
 
 export const Metadata = styled.div`
@@ -41,10 +36,6 @@ export const Metadata = styled.div`
     bottom: 0;
     flex-direction: row;
     display: flex;
-
-    ${({ visible }: { visible: boolean }) => css`
-        opacity: ${visible ? 1 : 0};
-    `};
 `;
 
 export const MetadataContent = styled.div`
