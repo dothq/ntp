@@ -3,7 +3,7 @@ import localforage from 'localforage';
 
 const url = "https://api.unsplash.com/photos/random?collections=67042424&count=1"
 
-const unsplashKey = process.env.GATSBY_UNSPLASH_KEY
+const unsplashKey = process.env.UNSPLASH_KEY
 
 export const getBackground = async () => {
     return new Promise(async (resolve, reject) => {
@@ -21,7 +21,8 @@ export const getBackground = async () => {
 
 const getFreshBackground = () => {
     return axios.get(url, { headers: { "Authorization": `Client-ID ${unsplashKey}`} }).then(metadata => {
-        return axios.get(`${metadata.data.url}&w=1920&h=1080`)
+        console.log(metadata)
+        return axios.get(`${metadata.config.url}&w=1920&h=1080`, { headers: { "Authorization": `Client-ID ${unsplashKey}`} })
             .then(async images => await addToCache(images.data, metadata.data))
             .catch(e => {
                 console.log(e.message)

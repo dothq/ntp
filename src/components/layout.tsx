@@ -66,7 +66,15 @@ const Layout = ({ children }) => {
 
 		unsplashPlugin.api.getBackground().then(images => {
 			const image = images[0]
-			setState({ attribution: image.attribution, location: !!image.location ? image.location : null })
+			console.log(image)
+
+			const attribution = {
+				originalPhoto: image.links.html,
+				logon: image.user.username,
+				name: image.user.name,
+			}
+
+			setState({ attribution, location: !!image.location ? image.location : null })
 
 			setBackground(image.urls.full);
 			setBackgroundSet(true);
@@ -75,20 +83,21 @@ const Layout = ({ children }) => {
 
 	return (
 		<>
-			<BackgroundDisplay 
+			<BackgroundDisplay
+				visible={backgroundLoaded}
 				src={background} 
 				loaded={backgroundLoaded} 
 				dimmed={backgroundDimmed}
-				onLoad={() => setBackgroundLoaded(!backgroundLoaded)} 
+				onLoad={() => setBackgroundLoaded(true)} 
 			/>
 
 			<MountEverest>
 				<Time />
 
 				<Metadata visible={backgroundLoaded} onMouseEnter={() => setBackgroundDimmed(true)} onMouseLeave={() => setBackgroundDimmed(false)}>
-					{state.attribution && <Attribution>
+					<Attribution>
 						<a target={"__blank"} href={state.attribution.originalPhoto}>Photo</a> by <a target={"__blank"} href={`https://unsplash.com/@${state.attribution.logon}`}>{state.attribution.name}</a> on <a target={"__blank"} href={`https://unsplash.com`}>Unsplash</a>
-					</Attribution>}
+					</Attribution>
 
 					{state.location && <Geolocation>
 						<a style={{ cursor: "pointer" }} onClick={() => copyCoords(state.location)}>{state.location.pretty}</a>
