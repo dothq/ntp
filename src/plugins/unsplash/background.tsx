@@ -3,7 +3,7 @@ import localforage from 'localforage';
 
 const url = "https://api.unsplash.com/photos/random?collections=67042424&count=1"
 
-const unsplashKey = process.env.UNSPLASH_KEY
+const unsplashKey = process.env.GATSBY_UNSPLASH_KEY
 
 export const getBackground = async () => {
     return new Promise(async (resolve, reject) => {
