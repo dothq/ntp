@@ -4,7 +4,7 @@ import Settingsbtn from '../plugins/settingsbtn';
 export default {
   'date-and-time': {
     component: Time,
-    defaultPosition: 'center-center'
+    defaultPosition: 'top-left'
   },
   settingsbtn: {
     component: Settingsbtn,
