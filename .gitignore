@@ -73,3 +73,6 @@ index.js
 .next
 
 dist
+
+#Ide configs
+.vscode

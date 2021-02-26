@@ -189,10 +189,10 @@ export default [
         url: "https://unsplash.com/photos/JWHSIG1kM2c"
     },
     {
-        id: "johnwestrock-fRHdKE6uj58",
+        id: "davehoefler-fRHdKE6uj58",
         original_url: "https://images.unsplash.com/photo-1606323309671-c51570922278?ixid=MXwxMTI1OHwwfDF8Y29sbGVjdGlvbnwyOHw2NzA0MjQyNHx8fHx8Mnw&ixlib=rb-1.2.1",
         author_name: "Dave Hoefler",
-        author_username: "johnwestrock",
+        author_username: "davehoefler",
         url: "https://unsplash.com/photos/fRHdKE6uj58"
     },
     {
