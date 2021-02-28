@@ -10,12 +10,6 @@ jobs:
   deploy:
     name: Package Extension
 
-on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
