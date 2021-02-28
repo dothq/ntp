@@ -1,40 +1,40 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CompressionPlugin = require("compression-webpack-plugin");
-const CopyPlugin = require("copy-webpack-plugin");
+const CompressionPlugin = require('compression-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 
 const config = {
   entry: './src/index.tsx',
 
-  target: "web",
+  target: 'web',
 
   output: {
     path: path.resolve('dist'),
     filename: 'ntp.js'
   },
 
-  devtool: "source-map",
+  devtool: 'source-map',
 
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js']
   },
 
   module: {
     rules: [
-        {
-            test: /\.(js|jsx)$/,
-            use: 'babel-loader',
-            exclude: /node_modules/,
-        },
-        {
-            test: /\.(ts|tsx)?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/,
-        },
-        {
-            test: /\.svg$/,
-            loader: 'svg-inline-loader'
-        }
+      {
+        test: /\.(js|jsx)$/,
+        use: 'babel-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.(ts|tsx)?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.svg$/,
+        loader: 'svg-inline-loader'
+      }
     ]
   },
 
@@ -45,9 +45,9 @@ const config = {
     new CompressionPlugin(),
     new CopyPlugin({
       patterns: [
-        { from: "plugins", to: "plugins" },
-        { from: "backgrounds", to: "backgrounds" }
-      ],
+        { from: 'plugins', to: 'plugins' },
+        { from: 'backgrounds', to: 'backgrounds' }
+      ]
     })
   ]
 };

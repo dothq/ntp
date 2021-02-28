@@ -5,11 +5,13 @@ import { StyledWidget } from './style';
 export const Widget = ({
   id,
   children,
-  defaultSlot
+  defaultSlot,
+  ag
 }: {
   id: string;
   children: React.ReactNode;
   defaultSlot: string;
+  ag: any;
 }) => {
   const [settings] = React.useState(state.get()[id]);
   const [slot, setSlot] = React.useState(state.get().slots[id]);
