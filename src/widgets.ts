@@ -6,4 +6,8 @@ export default {
     component: Time,
     defaultPosition: 'top-left'
   },
+  'settingsbtn': {
+    component: Settingsbtn,
+    defaultPosition: 'top-right'
+  }
 };
