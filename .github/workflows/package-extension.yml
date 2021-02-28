@@ -43,9 +43,9 @@ jobs:
           replace: ./bac
       - name: Delete unecessary files
         run: |
-              rm ./extension/builds/*.gz
-              rm ./extension/builds/plugins/*.gz
-              rm ./extension/builds/plugins/*/*.gz
+              rm extension/builds/*.gz
+              rm extension/builds/plugins/*.gz
+              rm extension/builds/plugins/*/*.gz
       - name: Create artifact...
         uses: actions/upload-artifact@v2
         with:
