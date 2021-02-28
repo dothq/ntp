@@ -34,7 +34,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
           # A regular expression of files to include in our find and replace
-          include: ./extension/builds/ntp.js
+          include: extension/builds/ntp.js
           # A regular expression of files to exclude in our find and replace
           exclude: .git
           # The string we want to replace
