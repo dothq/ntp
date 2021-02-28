@@ -7,7 +7,60 @@ on:
     branches: [main]
 
 jobs:
+  deploy:name: Package Extension
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
   deploy:
+    runs-on: ubuntu-latest
+    steps:
+      # Checks-out your repository under $GITHUBWORKSPACE, so your job can access it
+      - uses: actions/checkout@v2
+
+      - name: Install dependacies
+        run: npm install
+
+      - name: Build Compass into an Extension
+        run: |
+              npm run build
+              runTimestamp="$(date +%D)_$(date +%H)-$(date +%M)-$(date +%S)"
+              mkdir -p extension/builds/
+              mv dist/* extension/builds/
+              cp -r extension/base/* extension/builds/
+      
+      - name: Get Time
+        id: time
+        uses: nanzm/get-time-action@v1.1
+        with:
+          timeZone: 8
+          format: 'YYYY-MM-DD-HH-mm-ss'
+      - name: Find and Replace Absolute Directories
+        uses: jacobtomlinson/gha-find-replace@0.1.2
+        with:
+          # A regular expression of files to include in our find and replace
+          include: extension/builds/ntp.js
+          # A regular expression of files to exclude in our find and replace
+          exclude: .git
+          # The string we want to replace
+          find: /bac
+          # The new string to replace with
+          replace: ./bac
+      - name: Delete unecessary files
+        run: |
+              rm ./extension/builds/*.gz
+              rm ./extension/builds/plugins/*.gz
+              rm ./extension/builds/plugins/*/*.gz
+      - name: Create artifact...
+        uses: actions/upload-artifact@v2
+        with:
+          name: ${{ steps.time.outputs.time }}
+          path: ./extension/builds/
+
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUBWORKSPACE, so your job can access it
