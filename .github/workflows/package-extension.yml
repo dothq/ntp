@@ -41,6 +41,11 @@ jobs:
           find: /bac
           # The new string to replace with
           replace: ./bac
+      - name: Delete unecessary files
+        run: |
+              rm ./extension/builds/*.gz
+              rm ./extension/builds/plugins/*.gz
+              rm ./extension/builds/plugins/*/*.gz
       - name: Create artifact...
         uses: actions/upload-artifact@v2
         with:
