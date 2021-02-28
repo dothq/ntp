@@ -1,5 +1,5 @@
 import Time from '../plugins/date-and-time';
-import Settingsbtn from '../plugins/settingsbtn';
+//import Settingsbtn from '../plugins/settingsbtn';
 
 export default {
   'date-and-time': {
