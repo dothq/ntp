@@ -47,7 +47,7 @@ class Time extends React.Component {
 
   render() {
     return (
-      <div style={{ textAlign: 'center' }}>
+      <div style={{ textAlign: 'left' }}>
         <StyledTime>{this.state.time}</StyledTime>
         <StyledDate>{this.state.formattedDate}</StyledDate>
       </div>
