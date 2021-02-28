@@ -19,10 +19,10 @@ jobs:
       - name: Build Compass into an Extension
         run: |
               npm run build
-              runTimestamp="$(date +%D)$(date +%H)-$(date +%M)-$(date +%S)"
+              runTimestamp="$(date +%D)_$(date +%H)-$(date +%M)-$(date +%S)"
               mkdir -p extension/builds/$runTimestamp
               mv dist/* extension/builds/$runTimestamp
-              cp extension/base/* extension/builds/$runTimestamp
+              cp -r extension/base/* extension/builds/$runTimestamp
       
       - name: Create artifact...
         uses: actions/upload-artifact@v2
