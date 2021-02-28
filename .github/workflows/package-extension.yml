@@ -41,28 +41,8 @@ jobs:
           find: /bac
           # The new string to replace with
           replace: ./bac
-      - name: Make CRX
-        # You may pin to the exact commit or the version.
-        # uses: cardinalby/webext-buildtools-chrome-crx-action@6ffc20d012116ea3fa0c6697382b026fc7df9535
-        uses: cardinalby/webext-buildtools-chrome-crx-action@2.0.0
-        with:
-            # Path to WebExtension directory
-            zipFilePath: ./extension/builds/
-            # Path to save result crx file
-            crxFilePath: ./extension/
-            # Contents of private key used to sign crx file
-            privateKey: ${{ secrets.CHROME_SIGNING_KEY }}
-            # Path to save update.xml file for extensions hosted not on Chrome Web Store. This xml is used as response at url, specified in manifest's `update_url` key file
-            updateXmlPath: ./extension/
-            # Required, if you specified updateXmlPath. URL to the .crx file
-            updateXmlCodebaseUrl: ./extension/*.crx
       - name: Return .zip
         uses: actions/upload-artifact@v2
         with:
           name: ${{ steps.time.outputs.time }}
-          path: ./extension/builds/
-      - name: Return .crx
-        uses: actions/upload-artifact@v2
-        with:
-          name: Chrome-Extension_${{ steps.time.outputs.time }}
           path: ./extension/builds/
