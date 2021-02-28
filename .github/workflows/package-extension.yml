@@ -20,7 +20,7 @@ jobs:
         run: |
               npm run build
               runTimestamp="$(date +%D)$(date +%H)-$(date +%M)-$(date +%S)"
-              mkdir $runTimestamp
+              mkdir -p extension/builds/$runTimestamp
               mv dist/* extension/builds/$runTimestamp
               cp extension/base/* extension/builds/$runTimestamp
       
