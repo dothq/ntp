@@ -7,7 +7,7 @@ on:
     branches: [main]
 
 jobs:
-  deploy:
+  package:
     runs-on: ubuntu-latest
     steps:
       # Checks-out your repository under $GITHUBWORKSPACE, so your job can access it
@@ -15,6 +15,10 @@ jobs:
 
       - name: Install dependacies
         run: npm install
+        
+      - name: Update backgrounds
+        run: |
+          UNSPLASH_API_KEY=${{ secrets.UNSPLASH_API_KEY }} node download-backgrounds.js
 
       - name: Build Compass into an Extension
         run: |
