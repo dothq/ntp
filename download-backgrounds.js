@@ -5,14 +5,16 @@ const rimraf = require('rimraf').sync;
 const sharp = require("sharp");
 
 require('dotenv').config();
-
-const OFFICIAL_ID = "67042424"
+const COLLECTIONS = ["67042424","62409852"];
+const COLLECTIONSLEN = COLLECTIONS.length;
+for (i = 0; i < COLLECTIONSLEN; i++) {
+  text += "<li>" + fruits[i] + "</li>";
 let totalPages = 0;
 let images = new Set();
 
 const getImages = (pageNum) => {
     return new Promise(async (resolve) => {
-        const res = await axios.get(`https://api.unsplash.com/collections/${OFFICIAL_ID}/photos?page=${pageNum}&per_page=30`, { 
+        const res = await axios.get(`https://api.unsplash.com/collections/${COLLECTIONS[i]}/photos?page=${pageNum}&per_page=30`, { 
             headers: {
                 authorization: `Client-ID ${process.env.UNSPLASH_API_KEY}`
             }
@@ -76,3 +78,4 @@ const main = async () => {
 }
 
 main();
+}
