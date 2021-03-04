@@ -1,0 +1,15 @@
+{
+    "id": "search@dothq.co",
+    "name": "Search",
+    "version": "0.0.1",
+    "author": "Dot HQ",
+
+    "type": "widget",
+
+    "icons": {
+        "16": "icon.png",
+        "32": "icon-32.png"
+    },
+
+    "mount": "index.tsx"
+}

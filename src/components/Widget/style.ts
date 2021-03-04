@@ -15,9 +15,9 @@ export const StyledWidget = styled.div`
   display: flex;
   flex-direction: row;
 
-  &:hover {
-    background-color: #0000001f;
-  }
+  // &:hover {
+  //   background-color: #0000001f;
+  // }
 
   & > * {
     user-select: none;
