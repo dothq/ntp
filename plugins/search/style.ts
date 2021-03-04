@@ -8,24 +8,27 @@ export const StyledInput = styled.input`
   font-size: 1.4em;
   outline: 0;
   text-align: center;
-  transition: border-bottom 0.3s;
+  // transition: border-bottom 0.3s;
   padding: 10px;
   
-  &::-webkit-input-placeholder {
+  &::-moz-placeholder {
+    opacity: 1;
     color: rgba(255,255,255,0.5);
     transition: color 0.3s;
   }
-  &:-moz-placeholder {
+
+  &:focus::-moz-placeholder {
+    color: rgba(255,255,255,1);
+  }
+
+  &::-webkit-input-placeholder {
     color: rgba(255,255,255,0.5);
     transition: color 0.3s;
   }
 
   &:focus::-webkit-input-placeholder {
-    color: white;
+    color: rgba(255,255,255,1);
   }
-  &:focus:-moz-placeholder {
-    color: white;
-  }​
 
   &:focus {
     border-bottom: solid 2px white;
