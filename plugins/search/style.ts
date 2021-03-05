@@ -7,7 +7,7 @@ export const StyledInput = styled.input`
   color: white;
   font-size: 1.4em;
   outline: 0;
-  text-align: center;
+  text-align: left;
   // transition: border-bottom 0.3s;
   padding: 10px;
   
