@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const StyledInput = styled.input`
   background: 0;
   border:0;
-  border-bottom: solid 2px rgba(255,255,255,0.5);
+  border-bottom: solid 2px rgb(255,255,255);
   color: white;
   font-size: 1.4em;
   outline: 0;
@@ -28,9 +28,5 @@ export const StyledInput = styled.input`
 
   &:focus::-webkit-input-placeholder {
     color: rgba(255,255,255,1);
-  }
-
-  &:focus {
-    border-bottom: solid 2px white;
   }
 `;
