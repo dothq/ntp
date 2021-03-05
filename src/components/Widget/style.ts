@@ -40,7 +40,7 @@ export const StyledWidget = styled.div`
     top: 50%;
     left: 0;
     transform: translateY(-210%);
-    margin: var(--spacing) 0 0 0;
+    margin: 0 0 0 var(--spacing);
   }
   &.top-right {
     top: 0;
