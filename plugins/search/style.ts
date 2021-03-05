@@ -9,7 +9,10 @@ export const StyledInput = styled.input`
   outline: 0;
   text-align: left;
   // transition: border-bottom 0.3s;
-  padding: 10px;
+  padding-top: 10px;
+  padding-right: 10px;
+  padding-bottom: 10px;
+  padding-left: 5px;
   
   &::-moz-placeholder {
     opacity: 1;
