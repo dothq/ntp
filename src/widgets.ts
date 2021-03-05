@@ -8,6 +8,6 @@ export default {
   },
   'search':{
     component: Search,
-    defaultPosition: 'center-left'
+    defaultPosition: 'search-default'
   }
 };
