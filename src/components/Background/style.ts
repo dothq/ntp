@@ -18,7 +18,7 @@ export const StyledBackground = styled.div`
     opacity: ${ready ? 1 : 0};
 
     background-image: ${provider == 'unsplash'
-        ? 'radial-gradient(rgba(0,0,0,10%), rgba(0,0,0,0.5) 100%), '
+        ? 'radial-gradient(rgba(0,0,0,10%), rgba(0,0,0,0.5) 100%)), '
         : ''}${src};
 
     background-size: cover;
