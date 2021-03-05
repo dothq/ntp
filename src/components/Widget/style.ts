@@ -37,8 +37,8 @@ export const StyledWidget = styled.div`
     margin: var(--spacing) 0 0 0;
   }
   &.search-default {
-    top: 0;
-    left: 50%;
+    top: 50%;
+    left: 0;
     transform: translateY(-210%);
     margin: var(--spacing) 0 0 0;
   }
