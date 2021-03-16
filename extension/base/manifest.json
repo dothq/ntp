@@ -1,8 +1,9 @@
 {
     "name": "Compass",
     "version": "1.0.0",
+    "manifest_version": 2
 
-    
+    "default_locale": "en",
     "description": "Minimal and Elegant New Tab Page. Brought to you by DotHQ.",
     "icons": {
         "16": "images/Compass_Logo.png",
@@ -18,5 +19,4 @@
     "chrome_url_overrides" : {
         "newtab": "index.html"
     },
-    "manifest_version": 2
 }
