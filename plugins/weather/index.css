@@ -1,8 +1,0 @@
-.weather_stillloading {
-  opacity: 0;
-  transition: all 1s linear;
-}
-.weather_loaded {
-  opacity: 1;
-  transition: all 1s linear;
-}
