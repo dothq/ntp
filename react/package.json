@@ -27,6 +27,7 @@
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
+    "@fluent/react": "^0.13.1",
     "postcss": "^8.2.9",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
