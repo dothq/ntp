@@ -2,7 +2,7 @@ const getRandomArbitrary = (min, max) => {
     return Math.random() * (max - min) + min;
 }
 
-const selectandloadWallpaper = () => {
+const selectAndLoadWallpaper = () => {
     fetch('/constants/backgrounds.json')
     .then((response) => {
 
