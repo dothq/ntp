@@ -76,3 +76,5 @@ dist
 
 #Ide configs
 .vscode
+
+*.lock
