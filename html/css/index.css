@@ -1,6 +1,7 @@
 body {
     margin: 0;
     padding: 0;
+    background-color: black;
 }
 .resting-app {
     width: 100%;
@@ -8,4 +9,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
