@@ -29,3 +29,38 @@ export const NTP = styled.main`
         }
     `};
 `;
+
+export const OpenSettings = styled.button`
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 50px;
+
+    &:hover {
+        background-color: rgba(0, 0, 0, 0.2);
+    }
+
+    &:active {
+        background-color: rgba(0, 0, 0, 0.4);
+    }
+
+    &:before {
+        content: "";
+        width: 18px;
+        height: 18px;
+        mask-image: url(${require("../../assets/edit.svg")});
+        mask-size: 18px;
+        mask-repeat: no-repeat;
+        background-color: white;
+    }
+`;
