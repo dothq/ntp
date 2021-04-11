@@ -1,0 +1,6 @@
+[{
+    "componentName":"time@dothq.co",
+    "version":"1.0",
+    "path":"/js/widgets/time.js",
+    "entryPoint":"initialiseTimeWidget()"
+}]
