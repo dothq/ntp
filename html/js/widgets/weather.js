@@ -5,8 +5,8 @@ class WeatherWidget {
         settings = JSON.parse(ls.getItem('weatherSettings')); 
         if (settings == null) {
             settings = {
-                "widget-position": "bottom-right",
-                "text-position": "flex-end",
+                "widget-position": "bottom-left",
+                "text-position": "flex-start",
                 "unit": "c",
                 "city": "London",
                 "country": "England",
