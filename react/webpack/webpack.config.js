@@ -40,10 +40,6 @@ module.exports = {
             },
           },
         ],
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
       }
     ],
   },
@@ -60,6 +56,7 @@ module.exports = {
     new CopyPlugin({
       patterns: [
         { from: resolve(process.cwd(), "..", "html", "constants", "backgrounds.json"), to: "backgrounds.json" },
+        { from: resolve(process.cwd(), "src", "backgrounds"), to: "backgrounds" }
       ],
     }),
   ],
