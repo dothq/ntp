@@ -1,15 +1,14 @@
-import { Localized } from "@fluent/react";
 import React from "react"
 
 import '../../reset.css';
+import { NTP } from "./style";
 
 export const App = () => {
+    // constr 
+
     return (
-        <>
+        <NTP>
             <div>testing</div>
-            <Localized id="testing" vars={{ name: "bruh" }}>
-                <h1></h1>
-            </Localized>
-        </>
+        </NTP>
     )
 }

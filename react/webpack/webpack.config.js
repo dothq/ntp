@@ -17,7 +17,7 @@ module.exports = {
       {
         test: /\.(tsx|ts)?$/,
         use: 'ts-loader',
-        exclude: '/node_modules/'
+        exclude: '/node_modules/',
       },
       {
         test: /\.css$/i,
@@ -41,6 +41,10 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }
     ],
   },
   devServer: {
