@@ -35,8 +35,9 @@ class WeatherWidget {
                 <p style='color: white; margin: 10px 0px 0px 0px'>London England</p>
             `;
             document.getElementById('widgets-container').appendChild(weatherWidgetElement);
-            fetch(`https://compass-api.vercel.app/weather/${settings["city"]},${settings["country"]}`)
-            .then((response) => {
+            setTimeout(() => {
+                fetch(`https://compass-api.vercel.app/weather/${settings["city"]},${settings["country"]}`)
+                .then((response) => {
                 if (response.status == 200) {
                     response.json()
                     .then((weatherInfomation) => {
@@ -60,7 +61,8 @@ class WeatherWidget {
                         `);
                     })
                 }
-            })
+            });
+        }, 0);
         }
     }
 }
