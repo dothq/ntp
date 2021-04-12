@@ -1,1 +1,1 @@
-export const defaultWeatherSettings = { position: "bottom-left", city: "", country: "", setup: false };
+export const defaultWeatherSettings = { position: "bottom-left", city: "", country: "", setup: false, useFahrenheit: false };

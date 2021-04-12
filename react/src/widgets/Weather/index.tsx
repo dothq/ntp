@@ -5,6 +5,7 @@ import { fetcher } from "../../utils/fetcher";
 import { defaultWeatherSettings } from "./defaultSettings";
 import { useStore } from "react-hookstore";
 import { countryCodes } from "../../utils/countries";
+import { calculateTemp } from "../../utils/temp";
 
 export const Weather = () => {
     const [settings, setSettings]: [typeof defaultWeatherSettings, any] = useStore('weatherSettings');
@@ -35,7 +36,7 @@ export const Weather = () => {
     return (
         <WeatherWidget className={settings.position}>
             <WeatherIcon icon={require("../../assets/weather/cloud.svg")} />
-            <h1>{Math.floor(data.main.temp - 273.15)}°C </h1>
+            <h1>{calculateTemp(data.main.temp, settings.useFahrenheit)}°{settings.useFahrenheit ? `F` : `C`}</h1>
             <p>{data.name ? data.name : settings.city}, {(data.sys.country && countryCodes[data.sys.country]) ? countryCodes[data.sys.country] : settings.country}</p>
         </WeatherWidget>
     )

@@ -7,7 +7,7 @@ html, body {
     user-select: none;
 }
 
-.MuiButtonBase-root {
+.MuiCheckbox-root {
     padding: 0 !important;
 }
 
@@ -37,4 +37,9 @@ html, body {
 .input_rgba .input_rgba-wrap .input_rgba-alpha .input_rgba-alpha-label {
     color: gray !important;
 }
-  
+
+.button-box {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0;
+}
