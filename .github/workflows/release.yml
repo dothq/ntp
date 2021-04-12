@@ -26,10 +26,10 @@ jobs:
           ref: ${{ github.head_ref }}
 
       - name: Install
-        run: yarn
+        run: cd react && yarn
 
       - name: Change version
-        run: yarn ver ${{ github.event.inputs.version }}
+        run: cd react && node ../scripts/version.js ${{ github.event.inputs.version }}
 
       - name: Upload changes...
         uses: EndBug/add-and-commit@v7
@@ -38,10 +38,11 @@ jobs:
           message: '🔖 Bump version to ${{ github.event.inputs.version }}'
 
       - name: Build
-        run: yarn build:prod
+        run: cd react && yarn build:prod
 
       - name: Compress
         run: |
+          cd react
           cd dist 
           zip -r ntp .
           cd ..
