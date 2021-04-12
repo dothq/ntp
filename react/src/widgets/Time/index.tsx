@@ -5,32 +5,35 @@ import { TimeWidget } from "./style";
 import { format } from 'fecha';
 import { defaultDATSettings } from "./defaultSettings";
 import useLocalState from '@phntms/use-local-state';
-
-export const [timeSettings, setTimeSettings] = useLocalState('datetime.settings', defaultDATSettings);
+import { useStore } from "react-hookstore";
 
 export const Time = () => {
     const [time, setTime] = React.useState("");
     const [date, setDate] = React.useState("");
 
+    const [settings, setSettings]: [typeof defaultDATSettings, any] = useStore('datetimeSettings');
+    
     let timeInterval: any;
 
     const tick = () => {
-        const t = getTime(timeSettings.showSeconds, timeSettings.twentyFourHour);
-        const d = format(new Date(), timeSettings.dateFormat)
+        const t = getTime(settings.showSeconds, settings.twentyFourHour);
+        const d = format(new Date(), settings.dateFormat)
 
         setTime(t);
         setDate(d);
     }
 
     React.useEffect(() => {
-        console.log("time", timeSettings)
-
+        window.addEventListener("DOMContentLoaded", () => {
+            setSettings(localStorage.getItem("datetimeSettings") ? JSON.parse(localStorage.getItem("datetimeSettings") || "") : defaultDATSettings);
+        })
+        
         tick()
 
-        timeInterval = setInterval(tick, 700)
+        timeInterval = setInterval(tick, 1)
 
         return () => clearInterval(timeInterval);
-    }, [timeSettings])
+    }, [settings])
 
     return (
         <TimeWidget>

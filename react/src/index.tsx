@@ -4,8 +4,9 @@ import ReactDOM from "react-dom";
 import localforage from "localforage";
 
 import { App } from "./components/App";
+import { Settings } from "./store";
 
-localforage.setDriver(localforage.LOCALSTORAGE);
+new Settings();
 
 ReactDOM.render(
     <App />,
