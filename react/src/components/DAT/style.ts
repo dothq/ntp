@@ -34,6 +34,5 @@ export const CheckboxParent = styled.div`
         font-size: 18px;
         line-height: 24px;
         color: #000000;
-        cursor: pointer;
     }
 `;

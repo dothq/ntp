@@ -28,12 +28,12 @@ export const CheckboxParent = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding-bottom: 6px;
 
     & > span {
         font-weight: 500;
         font-size: 18px;
         line-height: 24px;
         color: #000000;
-        cursor: pointer;
     }
 `;

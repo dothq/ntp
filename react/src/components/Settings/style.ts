@@ -27,6 +27,26 @@ export const SettingsHeader = styled.header`
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    &:after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 136px;
+        left: 0;
+        box-shadow: inset 0 3.2px 7.2px 0 rgba(0,0,0,.132),0 .6px 1.8px 0 rgba(0,0,0,.108);
+        z-index: -10000;
+        pointer-events: none;
+        opacity: 0;
+        transition: 0.2s opacity ease-in-out;
+    }
+
+    ${({ atTop }: { atTop: boolean }) => css`
+        &:after {
+            opacity: ${atTop ? 0 : 1};
+        }
+    `};
 `;
 
 export const Title = styled.h1`

@@ -7,6 +7,40 @@ html, body {
     user-select: none;
 }
 
-.MuiButtonBase-root {
+.MuiCheckbox-root {
     padding: 0 !important;
+}
+
+.popup_tabs {
+    box-shadow: 0 6.4px 14.4px 0 rgba(0, 0, 0, 0.27),0 1.2px 3.6px 0 rgba(0, 0, 0, 0.21) !important;
+}
+
+.input_rgba .input_rgba-wrap input:hover {
+    background-color: transparent !important;
+    box-shadow: 0px 0px 0px 1px black !important;
+}
+  
+.input_rgba .input_rgba-wrap input {
+    box-shadow: 0px 0px 0px 1px #bbbfc5 !important;
+    color: black !important;
+}
+  
+.input_rgba .input_rgba-wrap input:focus {
+    background-color: transparent !important;
+    box-shadow: 0px 0px 0px 2px black !important;
+}
+  
+.input_rgba .input_rgba-wrap .input_rgba-hex .input_rgba-hex-label {
+    color: gray !important;
+}
+  
+.input_rgba .input_rgba-wrap .input_rgba-alpha .input_rgba-alpha-label {
+    color: gray !important;
+}
+
+.button-box {
+    display: flex;
+    justify-content: flex-end;
+    margin: 12px 0;
+    margin-bottom: 32px;
 }

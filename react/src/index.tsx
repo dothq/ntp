@@ -8,5 +8,5 @@ new Settings();
 
 ReactDOM.render(
     <App />,
-    document.getElementById("ntp")
+    document.getElementById("dot-ntp")
 );

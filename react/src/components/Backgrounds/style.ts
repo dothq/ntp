@@ -2,10 +2,18 @@ import styled, { css } from "styled-components"
 
 export const StyledBackgrounds = styled.div`
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     overflow-y: hidden;
     overflow-x: scroll;
     scrollbar-color: #8e8e8e white;
+    padding-bottom: 12px;
+`;
+
+export const BackgroundsContainer = styled.div`
+    display: flex;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    margin-bottom: 24px;
     padding-bottom: 12px;
 `;
 
@@ -15,6 +23,7 @@ export const BackgroundItem = styled.button`
     border: none;
     background-color: transparent;
     padding: 0;
+    cursor: pointer;
 
     & > p {
         margin: 14px;
@@ -95,4 +104,41 @@ export const BackgroundSelected = styled.figure`
         mask-position: center;
         background-color: #256EF5;
     }
+`;
+
+export const CheckboxParent = styled.div`
+    height: 38px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    width: calc(100% - 50px);
+
+    & > span {
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 24px;
+        color: #000000;
+    }
+`;
+
+export const ColourPicker = styled.button`
+    width: 26px;
+    height: 26px;
+    border-radius: 26px;
+    border: 4px solid #ffffff70;
+    padding: 0;
+    margin: 0;
+
+    &:hover {
+        filter: brightness(0.8);
+    }
+
+    &:active {
+        filter: brightness(0.6);
+    }
+
+    ${({ colour }: { colour: any }) => css`
+        background-color: ${colour};
+    `};
 `;

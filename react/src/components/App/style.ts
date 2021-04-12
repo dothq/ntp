@@ -1,12 +1,16 @@
 import styled, { css } from "styled-components";
 
-export const NTP = styled.main`
+export const NTP = styled.main.attrs((props: any) => ({
+    style: {
+        "--ntp-bg": props.backgroundSrc,
+    },
+}))`
     padding: 78px;
     display: flex;
     flex-direction: column;
     height: calc(100vh - 78px * 2);
 
-    ${({ backgroundSrc, ready }: { backgroundSrc: string; ready: boolean }) => css`
+    ${({ backgroundSrc, ready, provider }: { backgroundSrc: string; ready: boolean; provider: string }) => css`
         --ntp-opacity: ${ready ? 1 : 0};
         --ntp-bg-transform: ${ready ? `scale(1)` : `scale(1.1)`};
 
@@ -18,14 +22,15 @@ export const NTP = styled.main`
             left: 0;
             right: 0;
             z-index: -100;
-            background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0) 53.65%, rgba(0, 0, 0, 0.35) 100%), url(backgrounds/unsplash/${backgroundSrc}.jpeg);
+            background: var(--ntp-bg);
             background-repeat: no-repeat;
             background-position: center;
             background-size: cover;
             transition: 0.5s opacity ease-in-out, 0.3s transform ease-in-out;
             opacity: var(--ntp-opacity);
-            transform: var(--ntp-bg-transform);
+            transform: ${provider == "unsplash" ? `var(--ntp-bg-transform)` : ``};
             overflow: hidden;
+            animation: 0.8s load forwards ease-in-out;
         }
     `};
 `;

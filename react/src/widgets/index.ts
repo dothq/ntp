@@ -21,7 +21,8 @@ export const widgets = [
         settings: {
             name: "backgroundSettings",
             initial: {
-                provider: "unsplash"
+                provider: "unsplash",
+                colour: ""
             }
         }
     }
