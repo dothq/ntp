@@ -11,7 +11,8 @@
     "build:back": "cross-env NODE_ENV=production webpack --config webpack.server.config.js",
     "start": "node dist/index.js",
     "prod": "yarn build && cross-env PORT=3063 yarn start",
-    "lint": "yarn eslint '*/**/*.{js,ts,tsx}' --quiet --fix"
+    "lint": "yarn eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
+    "ver": "node scripts/version"
   },
   "dependencies": {
     "axios": "^0.21.0",
