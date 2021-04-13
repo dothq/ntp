@@ -80,3 +80,7 @@ const placeWallpaper = (blob) => {
 window.addEventListener("beforeunload", () => {
   URL.revokeObjectURL(window["temp_wallpaperBlob"]);
 })
+
+/*
+NTM6NzA6MTA6czE6ZTA6NzA6cjI6ZTQ6ZTg6ZTc6MDA6ZTI6ZTA6ZTc6YzU6MDQ6NTM6cjM6TTI6MzQ6ZTA6MTQ6ZTEwOmUyOjcyOjUwOjAyOmUxNzo=
+*/
