@@ -1,7 +1,7 @@
 const { readFileSync, writeFileSync } = require('fs')
 const path = require('path')
 
-const ROOT = path.join(process.cwd(), '..')
+const ROOT = path.join(process.cwd())
 const PACKAGE_JSON = path.join(ROOT, 'package.json')
 
 const version = process.argv[2]

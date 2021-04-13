@@ -44,6 +44,7 @@ export const App = () => {
                 colour: ""
             });
             setSettingsReady(true);
+            console.timeEnd("start load")
         })
 
         setSrc(
