@@ -29,7 +29,7 @@ jobs:
         run: cd react && yarn
 
       - name: Change version
-        run: node ../scripts/version.js ${{ github.event.inputs.version }}
+        run: node ./scripts/version.js ${{ github.event.inputs.version }}
 
       - name: Upload changes...
         uses: EndBug/add-and-commit@v7
