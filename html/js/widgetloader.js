@@ -5,7 +5,10 @@ const loadWidgets = () => {
             response.json()
             .then((widgetsArray) => {
                 widgetsArray.forEach((item) => {
-                    initialiseWidget(item.path, item.entryPoint);
+                    // initialiseWidget(item.path, item.entryPoint);
+                    var newScript = document.createElement('script')
+                    newScript.src = item.path;
+                    document.body.appendChild(newScript);
                 });
             })
         } else {
@@ -20,7 +23,7 @@ const initialiseWidget = (widgetURL) => {
         if (response.status == 200){
             response.text()
             .then((widgetJS) => {
-                eval(widgetJS);
+                // eval(widgetJS);
             });
         } else {
             netError(response.status);

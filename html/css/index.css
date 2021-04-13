@@ -4,13 +4,24 @@
 }
 :root {
     --gap: 34px;
+    --text-color: black;
     --backg-color: white;
     --backg-color-light: rgba(0, 0, 0, 0.1);
     --accent-color: rgb(37, 110, 245);
 }
+@media (prefers-color-scheme: dark){
+  :root {
+    --gap: 34px;
+    --text-color: white;
+    --backg-color: black;
+    --backg-color-light: rgba(255, 255, 255, 0.1);
+    --accent-color: rgb(37, 110, 245);
+}
+}
 
 h1,h2,h3,h4,h5,h6,p{
   margin: 0;
+  color: var(--text-color);
 }
 
 body {
