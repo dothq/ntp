@@ -27,6 +27,7 @@ const settingsClose = () => {
 const postSettingsInit = () => {
     window["checked"] = 0;
     refreshChecks();
+    refreshTimeFormat();
 }
 
 const refreshChecks = () => {
@@ -38,4 +39,14 @@ const refreshChecks = () => {
         document.getElementsByClassName("checkbox-big")[1].setAttribute("class", "checkbox-big");
         document.getElementsByClassName("checkbox-big")[0].setAttribute("class", "checkbox-big checkbox-inactive");
     }
+}
+
+const refreshTimeFormat = () => {
+    const ls = window.localStorage;
+    let timeSettings = JSON.parse(ls.getItem("timeSettings"));
+    document.getElementById("dateFormat").value = timeSettings["time-format"];
+    document.getElementById("dateFormat").addEventListener("keyup", (e) => {
+        timeSettings["time-format"] = e.target.value;
+        ls.setItem("timeSettings", JSON.stringify(timeSettings));
+    })
 }
