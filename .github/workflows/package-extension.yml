@@ -31,7 +31,6 @@ jobs:
           cd ..
           mkdir -p extension/builds/
           mv react/dist/* extension/builds/
-          cp -r extension/base/* extension/builds/
 
       - name: Get Time
         id: time
