@@ -14,20 +14,24 @@ jobs:
       - uses: actions/checkout@v2
 
       - name: Install dependacies
-        run: npm install
-        
+        run: |
+          cd react
+          npm install
+
       - name: Update backgrounds
         run: |
           UNSPLASH_API_KEY=${{ secrets.UNSPLASH_API_KEY }} node download-backgrounds.js
 
       - name: Build Compass into an Extension
         run: |
-              npm run build
-              runTimestamp="$(date +%D)_$(date +%H)-$(date +%M)-$(date +%S)"
-              mkdir -p extension/builds/
-              mv dist/* extension/builds/
-              cp -r extension/base/* extension/builds/
-      
+          cd react
+          npm run build:prod
+          runTimestamp="$(date +%D)_$(date +%H)-$(date +%M)-$(date +%S)"
+          cd ..
+          mkdir -p extension/builds/
+          mv react/dist/* extension/builds/
+          cp -r extension/base/* extension/builds/
+
       - name: Get Time
         id: time
         uses: nanzm/get-time-action@v1.1
@@ -38,7 +42,7 @@ jobs:
         uses: jacobtomlinson/gha-find-replace@0.1.2
         with:
           # A regular expression of files to include in our find and replace
-          include: extension/builds/ntp.js
+          include: extension/builds/ntp*.js
           # A regular expression of files to exclude in our find and replace
           exclude: .git
           # The string we want to replace
