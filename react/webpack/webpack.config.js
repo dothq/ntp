@@ -8,9 +8,14 @@ const BrotliPlugin = require('brotli-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 
-const config = {
+const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
+
+const smp = new SpeedMeasurePlugin();
+
+const config = smp.wrap({
   mode: process.env.NODE_ENV == 'dev' ? 'development' : 'production',
   devtool: process.env.NODE_ENV == 'dev' ? 'inline-source-map' : undefined,
+  cache: true,
   entry: {
     ntp: resolve(process.cwd(), 'src', 'index.tsx')
   },
@@ -103,12 +108,6 @@ const config = {
         }
       ]
     }),
-    new BrotliPlugin({
-      asset: '[path].br[query]',
-      test: /\.(js|css|html|svg|ts|tsx)$/,
-      threshold: 10240,
-      minRatio: 0.8
-    }),
     new UglifyJsPlugin({
       cache: true,
       parallel: true,
@@ -130,9 +129,21 @@ const config = {
       }
     }
   }
-};
+});
 
-if (process.env.NODE_ENV == 'dev')
+if (process.env.NODE_ENV == 'dev') {
   config.plugins.push(new BundleAnalyzerPlugin());
+} else {
+  // Brotli ads an extra ~12 seconds to build time on my machine
+  // I see no good reason to ues it in dev
+  config.plugins.push(
+    new BrotliPlugin({
+      asset: '[path].br[query]',
+      test: /\.(js|css|html|svg|ts|tsx)$/,
+      threshold: 10240,
+      minRatio: 0.8
+    })
+  );
+}
 
 module.exports = config;
