@@ -3,9 +3,8 @@
   "version": "0.0.3",
   "private": true,
   "scripts": {
-    "dev": "run-p watch:front watch:back",
-    "build": "cross-env NODE_ENV=dev webpack serve -c webpack/webpack.config.js",
-    "build:prod": "cross-env NODE_ENV=prod webpack -c webpack/webpack.config.js",
+    "dev": "cross-env NODE_ENV=dev webpack serve -c webpack/webpack.config.js",
+    "build": "cross-env NODE_ENV=prod webpack -c webpack/webpack.config.js",
     "deploy": "vercel",
     "lint": "yarn eslint '*/**/*.{js,ts,tsx}' --quiet --fix",
     "ver": "node scripts/version"
