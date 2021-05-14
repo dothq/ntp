@@ -16,8 +16,6 @@ jobs:
       - name: Install dependacies
         run: |
           npm install
-          cd react
-          npm install
 
       - name: Update backgrounds
         run: |
@@ -25,12 +23,10 @@ jobs:
 
       - name: Build Compass into an Extension
         run: |
-          cd react
           npm run build:prod
           runTimestamp="$(date +%D)_$(date +%H)-$(date +%M)-$(date +%S)"
-          cd ..
           mkdir -p extension/builds/
-          mv react/dist/* extension/builds/
+          mv dist/* extension/builds/
 
       - name: Get Time
         id: time

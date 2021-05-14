@@ -2,8 +2,8 @@ const { resolve } = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer')
-  .BundleAnalyzerPlugin;
+const BundleAnalyzerPlugin =
+  require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const BrotliPlugin = require('brotli-webpack-plugin');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
@@ -111,7 +111,6 @@ const config = {
         {
           from: resolve(
             process.cwd(),
-            '..',
             'extensions',
             'official',
             'manifest.json'
@@ -119,13 +118,7 @@ const config = {
           to: 'manifest.json'
         },
         {
-          from: resolve(
-            process.cwd(),
-            '..',
-            'extensions',
-            'official',
-            'images'
-          ),
+          from: resolve(process.cwd(), 'extensions', 'official', 'images'),
           to: 'images'
         }
       ]
