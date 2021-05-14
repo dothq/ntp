@@ -3,6 +3,7 @@
 
 import React from 'react';
 import { useStore } from 'react-hookstore';
+import { Search } from '../Search';
 
 import { defaultTopSiteSettings } from './defaultSettings';
 import { defaultTopSites, TopSitesItems } from './defaultSites';
@@ -11,15 +12,19 @@ import style from './styles.module.css';
 
 const TopSitesDisplay = ({ sites }) => (
   <div className={style.container}>
-    {sites.map((site, i) => (
-      <div
-        onClick={() => (location.href = site.url)}
-        key={i}
-        className={style.site}
-      >
-        <img src={site.favicon} alt={site.name} />
-      </div>
-    ))}
+    <Search />
+
+    <div className={style.sites}>
+      {sites.map((site, i) => (
+        <div
+          onClick={() => (location.href = site.url)}
+          key={i}
+          className={style.site}
+        >
+          <img src={site.favicon} alt={site.name} />
+        </div>
+      ))}
+    </div>
   </div>
 );
 
@@ -39,7 +44,7 @@ export const TopSites = () => {
           : defaultTopSiteSettings
       );
 
-      if (browser) {
+      if (typeof browser != 'undefined') {
         const sites = await browser.topSites.get({
           includeFavicon: true
         });
@@ -57,8 +62,6 @@ export const TopSites = () => {
     // If the browser sites haven't loaded in yet, return something
     // blank to ensure that rendering plays nices
     if (!data) return <div></div>;
-
-    console.log(data);
 
     return (
       <TopSitesDisplay

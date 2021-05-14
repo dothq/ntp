@@ -5,11 +5,18 @@
   gap: 12px;
   margin-top: 58px;
 
+  flex-direction: column;
+
   background: rgba(255, 255, 255, 0.35);
   backdrop-filter: blur(4px);
 
   /* Note: backdrop-filter has minimal browser support */
   border-radius: 22px;
+}
+
+.sites {
+  display: flex;
+  gap: 12px;
 }
 
 .site {

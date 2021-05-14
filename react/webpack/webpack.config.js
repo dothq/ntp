@@ -14,7 +14,7 @@ const smp = new SpeedMeasurePlugin();
 
 const config = smp.wrap({
   mode: process.env.NODE_ENV == 'dev' ? 'development' : 'production',
-  devtool: process.env.NODE_ENV == 'dev' ? 'cheap-source-map' : undefined,
+  devtool: process.env.NODE_ENV == 'dev' ? 'inline-source-map' : undefined,
   cache: true,
   entry: {
     ntp: resolve(process.cwd(), 'src', 'index.tsx')

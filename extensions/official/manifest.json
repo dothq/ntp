@@ -11,7 +11,7 @@
         "128": "images/compass.svg"
     },
     "permissions": [
-        "tabs","topSites"
+        "tabs","topSites", "search"
     ],
     "chrome_url_overrides" : {
         "newtab": "index.html"
