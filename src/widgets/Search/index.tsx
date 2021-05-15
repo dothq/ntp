@@ -6,10 +6,10 @@ import React from 'react';
 import style from './styles.module.css';
 
 const SearchDisplay = ({ searchCall }) => (
-  <form onSubmit={searchCall} style={{ width: '100%' }} action="#">
+  <form onSubmit={searchCall} style={{ width: '100%' }} action="https://duckduckgo.com/">
     <input
       type="text"
-      name="Search"
+      name="q"
       id="search"
       placeholder="Search"
       autoFocus={true}
@@ -40,6 +40,7 @@ export const Search = () => {
         searchCall={() => {
           const target = document.getElementById('search');
           window.location.href = `https://duckduckgo.com/?q=${target.value}`;
+          return false;
         }}
       />
     );
@@ -53,6 +54,7 @@ export const Search = () => {
         searchCall={() => {
           const target = document.getElementById('search') as HTMLInputElement;
           browser.search.search({ query: target.value || '', tabId: tabID });
+          return false;
         }}
       />
     );
