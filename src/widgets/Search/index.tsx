@@ -6,10 +6,10 @@ import React from 'react';
 import style from './styles.module.css';
 
 const SearchDisplay = ({ searchCall }) => (
-  <form onSubmit={searchCall} style={{ width: '100%' }} action="#">
+  <form onSubmit={searchCall} style={{ width: '100%' }} action="https://duckduckgo.com/">
     <input
       type="text"
-      name="Search"
+      name="q"
       id="search"
       placeholder="Search"
       autoFocus={true}
