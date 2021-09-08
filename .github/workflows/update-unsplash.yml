@@ -8,8 +8,8 @@ on:
     branches:
       - main
 
-  schedule:
-    - cron: '32 17 * * *' # This runs once per day
+#  schedule:
+#    - cron: '32 17 * * *' # This runs once per day
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
