@@ -9,3 +9,5 @@
 <p align="center">
 🧭 Compass is a feature-rich New Tab page designed for speed.
 </p>
+
+Archived in favour of: https://github.com/dothq/browser-desktop/tree/nightly/src/dot/resources/newtab
